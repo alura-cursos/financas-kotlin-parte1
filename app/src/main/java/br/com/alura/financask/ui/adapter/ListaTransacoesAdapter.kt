@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import br.com.alura.financask.R
 import br.com.alura.financask.model.Transacao
 import kotlinx.android.synthetic.main.transacao_item.view.*
+import java.text.SimpleDateFormat
 
 /**
  * Created by Alura on 22/09/2017.
@@ -24,7 +25,13 @@ class ListaTransacoesAdapter(transacoes: List<Transacao>,
 
         val transacao = transacoes[posicao]
 
-        viewCriada.transacao_valor.setText(transacao.getValor().toString())
+        viewCriada.transacao_valor.text = transacao.valor.toString()
+        viewCriada.transacao_categoria.text = transacao.categoria
+
+        val formatoBrasileiro = "dd/MM/yyyy"
+        val format = SimpleDateFormat(formatoBrasileiro)
+        val dataFormatada = format.format(transacao.data.time)
+        viewCriada.transacao_data.text = dataFormatada
 
 
         return viewCriada
