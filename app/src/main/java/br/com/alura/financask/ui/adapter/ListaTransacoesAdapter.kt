@@ -45,7 +45,7 @@ class ListaTransacoesAdapter(transacoes: List<Transacao>,
 
 
 
-        viewCriada.transacao_valor.text = transacao.valor.toString()
+        viewCriada.transacao_valor.text = transacao.valor.formataParaBrasileiro()
         viewCriada.transacao_categoria.text = transacao.categoria
         viewCriada.transacao_data.text = transacao.data.formataParaBrasileiro()
 
